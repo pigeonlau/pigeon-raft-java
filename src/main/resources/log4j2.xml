@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="log-main">main</Property>
+        <Property name="log-path">logs</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT">
+            <PatternLayout>
+                <pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+            </PatternLayout>
+        </Console>
+
+<!--        <RollingFile name="main-file" fileName="${log-path}/${log-main}.log" filePattern="${log-path}/${log-main}-%d{yyyy-MM-dd}.gz">-->
+<!--            <PatternLayout>-->
+<!--                <pattern> %d{yyyy-MM-dd HH:mm:ss.SSS} %c{1}[%L] %-5level - %msg%n</pattern>-->
+<!--            </PatternLayout>-->
+<!--            <Policies>-->
+<!--                <TimeBasedTriggeringPolicy interval="1" modulate="true" />-->
+<!--            </Policies>-->
+<!--            <DefaultRolloverStrategy>-->
+<!--                <Delete basePath="${log-path}" maxDepth="1">-->
+<!--                    <IfFileName glob="${log-main}-*.gz" />-->
+<!--                    <IfLastModified age="15d" />-->
+<!--                </Delete>-->
+<!--            </DefaultRolloverStrategy>-->
+<!--        </RollingFile>-->
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="console" />
+            <AppenderRef ref="main-file" />
+        </Root>
+    </Loggers>
+</Configuration>
